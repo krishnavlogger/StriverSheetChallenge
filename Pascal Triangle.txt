@@ -1,0 +1,11 @@
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        res=[[1]]
+        for i in range(numRows-1):
+            temp=[0]+res[-1]+[0] # Meaning add 0 to prev list at the end and begning
+            #res[-1] is the last elenent of result list
+            li=[]
+            for j in range(len(res[-1])+1):
+                li.append(temp[j]+temp[j+1])
+            res.append(li)
+        return res        
