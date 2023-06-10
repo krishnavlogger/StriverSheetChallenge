@@ -1,0 +1,30 @@
+public class Solution 
+{
+    public static ArrayList<Integer> majorityElementII(ArrayList<Integer> arr) 
+    {
+        // Write your code here.
+    
+		int si=arr.size();
+        int ans=si/3;
+		int ans1=(int)Math.floor(ans);
+        ArrayList<Integer> answer=new ArrayList<>();
+		Map<Integer,Integer> map=new HashMap<>();
+		for(int i:arr){
+			if(map.containsKey(i)){
+				map.put(i,map.get(i)+1);
+			}
+			else{
+				map.put(i,1);
+			}
+		}
+		for(int i:arr){
+			if(map.containsKey(i) && map.get(i)>ans1){
+				answer.add(i);
+                map.remove(i);
+			}
+		}
+		return answer;
+
+
+    }
+}
