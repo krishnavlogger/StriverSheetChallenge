@@ -1,0 +1,22 @@
+public class Solution {
+	public static int findMajority(int[] arr, int n) {
+		// Write your code here.
+		int ans=n/2;
+		int ans1=(int)Math.floor(ans);
+		Map<Integer,Integer> map=new HashMap<>();
+		for(int i:arr){
+			if(map.containsKey(i)){
+				map.put(i,map.get(i)+1);
+			}
+			else{
+				map.put(i,1);
+			}
+		}
+		for(int i:arr){
+			if(map.containsKey(i) && map.get(i)>ans1){
+				return i;
+			}
+		}
+		return -1;
+	}
+}
